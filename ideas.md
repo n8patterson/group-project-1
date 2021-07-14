@@ -1,12 +1,12 @@
-#News Ideas
+# News Ideas
 
 
-##Spurious Correlations
+## Spurious Correlations
 A common mistake made in financial analysis is to first search for correlations, and then create a causal narrative to explain the correlation. This method is risky because correlations frequently exist between causally disconnected events by mere chance alone.
 In order to reduce the chance of finding a spurious correlation, we need to start with a list of major events, and from there make testable hypotheses about the effects of these events on the prices or returns of financial indices.
 Only after we have a set of testable hypotheses should we search for correlations which will either support or refute our causal model.  
 
-##Catalog of major events in the past 10 years:
+## Catalog of major events in the past 10 years:
     * flare-ups in the Israeli/Palestinian conflict
     * American War on Terror
     * American intervention in Libya
