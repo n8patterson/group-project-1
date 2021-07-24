@@ -2,6 +2,7 @@ import fasttext
 import numpy as np
 import spacy
 from scipy.spatial import distance
+import json
 
 # a statistical model we will use to split docs into sentences
 spacy_model = spacy.cli.download("en_core_web_sm")
@@ -9,11 +10,9 @@ sentencizer = spacy.load('en_core_web_sm')
 
 # a 700-parameter sentence-embeddings NLP model trained on Pubmed biomedical data (20+ GB!)
 # https://github.com/ncbi-nlp/BioSentVec/wiki
+print('loading model...')
 model = fasttext.load_model(
     '/Users/michael/fintech/group_project_1/group-project-1/BioSentVec_PubMed_MIMICIII-bigram_d700.bin')
-
-emb = model.get_sentence_vector("once upon a time .")
-# embs = model.predict("one man set out to rule the world")
 
 company_profiles = {
     "NTLA": "Intellia Therapeutics, Inc., a genome editing company, focuses on the development of therapeutics. "
@@ -105,7 +104,7 @@ company_profiles = {
 def get_similarity(tweet, document_embedding):
     tweet_sentences = [t.text for t in sentencizer(tweet).sents]
     tweet_embedding = np.mean(
-        [model.get_sentence_vector(s) for s in tweet_sentences], axis=0)
+        [model.get_sentence_vector(s.replace('\n', '')) for s in tweet_sentences], axis=0)
     return 1 - distance.cosine(tweet_embedding, document_embedding)
 
 
@@ -122,7 +121,34 @@ if __name__ == "__main__":
         for symbol, blurb_sentences in sentence_embeddings.items()
     }
 
-    for tweet in ['this is a sentence about biotechnology',
-                  'I used crispr on my mosquitos',
-                  'the children need their therapeutic cancer treatment']:
-        print(get_similarity(tweet, blurb_embeddings['EDIT']))
+    with open('influencer_tweets.json', 'r') as tweets_file:
+        print('loading tweets data...')
+        tweets_json = json.load(tweets_file)
+
+    tweet_similarities_to_company_blurbs = {}
+
+    print('processing tweets...')
+    counter = 0
+    for influencer, tweets in tweets_json.items():
+        print(influencer)
+        for tweet in tweets:
+            tweet_id = tweet['id']
+            tweet_time = tweet['created_at']
+            tweet_text = tweet['text']
+            tweet_features = {
+                'time': tweet_time,
+                'text': tweet_text,
+                'user': influencer,
+            }
+            tweet_features.update(
+                {
+                    f'about_{company_name}': get_similarity(tweet_text, blurb_embeddings[company_name])
+                    for company_name in blurb_embeddings
+                }
+            )
+            tweet_similarities_to_company_blurbs[tweet_id] = tweet_features
+            counter += 1
+        print(f'{counter} tweets processed so far...')
+
+    with open('tweet_cosine_similarities.json', 'w', encoding='utf-8') as _output:
+        json.dump(tweet_similarities_to_company_blurbs, ensure_ascii=False, indent=4)
