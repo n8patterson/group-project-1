@@ -109,6 +109,7 @@ def get_similarity(tweet, document_embedding):
         [model.get_sentence_vector(s.replace('\n', '')) for s in tweet_sentences], axis=0)
     return 1 - distance.cosine(tweet_embedding, document_embedding)
 
+
 def to_csv_line(tweet_id, tweet_features_json):
     output = [tweet_id]
     for column in CSV_HEADER[1:]:
