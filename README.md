@@ -4,6 +4,47 @@ The scope of our project will demonstrate the relationships between financial in
 
 ---
 
+##About
+In this project, we are testing for correlations between the public disclosure of information
+about an industry and the prices of assets for companies in that industry. 
+
+We use Tweets to indicate the release of information. To narrow the data collection task, we 
+will gather historical tweets from high-influence accounts in the knowledge domain of a
+target industry. For this experiment, we selected the Biotech industry.
+ 
+## NLP
+see [nlp_on_tweets.py](./nlp_on_tweets.py), [parse_tweet_response.py](./parse_tweet_response.py)
+### Tweets
+Twenty high-profile twitter accounts in the biotech space were identified as listed [here](./biotech_influcencers.txt).
+The Twitter API was used to extract account IDs and all historical tweets from these influencer 
+accounts.
+
+### Target Industry Language
+To measure how many Tweets over time refer to topics in the biotech industry, we obtained a
+document embedding of the summary statement for each of five companies as found on Yahoo!
+Finance. Using Spacy to break each summary into sentences, each sentence was classified into
+a word vector using the 700-parameter pre-trained biotech-specific Sent2Vec model obtained
+[here](https://github.com/ncbi-nlp/BioSentVec). To obtain a document-embedding, we used
+the mean of the sentence vectors for each document.
+ 
+This same model and method was used to classify each tweet in the industry domain.
+ 
+### Similarity Detection
+Given a set of document embeddings for each company and a set of tweet embeddings on the
+same domain-specific Sent2Vec model, we calculated the cosine similarity between each tweet
+and each of five document embeddings to obtain a matrix of similarity metrics roughly
+indicating the degree to which each tweet refers to concepts related to each company.
+These data were dumped to a [csv file](./tweet_cosine_similarities.csv)
+
+### Data Cleaning
+To obtain a time series for comparison with each company from the list of historical
+tweets, we bucketed our index by day and then found the sum of the cosine similarities
+of tweets from that day with respect to each company. See 
+    
+
+
+          
+
 
 ## Technologies
 This project leverages python 3.8.8 with the following packages:
@@ -37,6 +78,7 @@ In gitbash after you have activated your dev environment, install the following:
 
 ```python
   pip install jupyter lab
+  pip install -r requirements.txt
 ```
 
 *Anaconda requests

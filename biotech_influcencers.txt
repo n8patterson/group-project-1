@@ -1,0 +1,41 @@
+#copied from https://www.veristat.com/blog/biotech-pharma-twitter
+
+Amy Harmon (@Amy_Harmon): Amy is a National Correspondent and Pulitzer Prize winner at The New York Times, who digs into topics such as social ethics in science, biotechnology, and genomics.
+
+Eric Topol (@EricTopol): Eric is a prominent Cardiologist at Scripps Health in San Diego, and a Professor of Genomics at The Scripps Research Institute. He was an early advocate of health IT and continues to be a thought leader in this area.
+
+Paul Sonnier (@Paul_Sonnier): Paul runs a 37,000+ member digital health LinkedIn group. He is the founder and principal at Digital Health Consulting and is on the Strategic Advisory Board at Pathway Genomics Corporation.
+
+Ryan Bethencourt (@RyanBethencourt): Ryan is a Program Director & Venture Partner at IndieBio, Cofounder and former CEO of Berkeley Biolabs, Cofounder of Counter Culture Labs. You can count on him for live tweets from industry events and up to date information on industry activists and activities.
+
+Adam Feuerstein (@adamfeuerstein): Adam is a Senior Columnist for TheStreet.com. You can follow him for information on publicly traded biotech stocks. His wit is sharp and he doesn't hold back any punches if he thinks something is fishy at a company.
+
+Paul Tunnah (@pharmaphorum): Paul is the CEO & Founder of pharmaphorum media, a digital podium for communicating thought leadership and innovation within pharma.
+
+Daniel MacArthur (@dgmacarthur): Daniel is the Co-Director of Medical and Population Genetics at the Broad Institute, and an Assistant Professor at Harvard Medical School. He leads an academic research team devoted to developing methods for interpreting the functional impact of genetic variation.
+
+Jason Moore (@moorejh): Jason is a Director and Professor at the Institute for Biomedical Informatics, Perelman School of Medicine at the University of Pennsylvania. He tweets about science, precision medicine, and how technology is impacting the industry's future.
+
+Jonathan Eisen (@phylogenomics): Jonathan is a Professor at the Department of Medical Microbiology and Immunology and Section on Evolution and Ecology, U.C. Davis Genome Center, at the University of California. As his handle implies, he tweets a lot about genomics. He also will keep you up to date on what he's reading and provide some humor about recent political topics.
+
+Craig Lipset (@CraigLipset): Craig is the Head of Clinical Innovation within Worldwide Research and Development at Pfizer and on the Board of Directors for several non-profits. Has been in the field of drug development for over 15 years.
+
+Mike Thompson (@mtmdphd): Mike is a Clinical Adjunct Assistant Professor for the Department of Medicine at University of Wisconsin School of Medicine. He is also a Medical Director, Early Phase Cancer Research Program, Patient-Centered Research at Aura Health Care. Mike runs some interesting Twitter polls and provides frequent ASCO updates.
+
+Rahlyn Gossen (@RebarInter): Rahlyn is a patient experience enthusiast, health tech geek, and proud New Orleanian. She tweets for Rebar Interactive.
+
+Luke Timmerman (@ldtimmerman): Luke is a biotech journalist and founder of @TimmermanReport. He is a contributor at Forbes and co-host of Signal, a podcast at STAT News. He covers all areas of the industry from sexism in the workforce to new PD-L1 breakthroughs.
+
+Bruce Booth (@LifeSciVC): Bruce describes himself as an early stage biotech VC and recovering scientist. He tweets about investing topics, such as the behaviors of first time biotech CEOs and where biotech VC funding is heading in the future. He can also be relied upon for inspiration quotes in the form of Metallica quotes.
+
+Dan Sfera (@TheRealDanSfera): Dan runs a website called The Clinical Trials Guru, where he discusses clinical trials in plain English. His company is called DSCS Sweat Equity & Investments, LLC. He is an entrepreneur who partners with, invests in, and advises clinical research companies. He uses his Twitter account to promote a lot of his YouTube vlogs, which covering everything from dealing with a confrontational CRA to professional development opportunities for PIs. Anyone who follows his Twitter account knows that he is also a frustrated sports fan, as every team he starts to root for instantly looses.
+
+Luke Scicluna (@Biotech_Updates): Luke is an immunologist and neuroscientist who moved to the Biotechnology sector, and is interested in Life Science developments. His tweets will keep you up to date on the latest industry changes, approvals, failures.
+
+Michael Fisch (@fischmd): Michael is the Director of Medical Oncology at AIM Speciality Health and a clinical specialist in the Department of General Oncology at MD Anderson Cancer Center. He tweets about patient advocacy, cost of care, and challenges with getting cancer patients enrolled in clinical trials.
+
+Wendy Blackburn (@WendyBlackburn): Wendy is a marketer who is focused on pharma. She covers topics you won't see elsewhere, like how to create compliant medidata for branded organic search results.
+
+Mark Schoenebaum (@MarkSchoenebaum): Mark has been a biotech and pharma analyst since 2000. If his profile photo looks familiar, it is because you have probably seen him on CNBC. He also loves sharing data visually, with cool charts and word clouds.
+
+Matthew Herper (@matthewherper): Matthew writes about genomics and other biomedical science topics for Forbes. He also talks about many of the struggles that the industry sees when trying to develop new drugs.
