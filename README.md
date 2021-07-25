@@ -12,13 +12,14 @@ We use Tweets to indicate the release of information. To narrow the data collect
 will gather historical tweets from high-influence accounts in the knowledge domain of a
 target industry. For this experiment, we selected the Biotech industry.
  
-##NLP
-###Tweets
+## NLP
+see [nlp_on_tweets.py](./nlp_on_tweets.py), [parse_tweet_response.py](./parse_tweet_response.py)
+### Tweets
 Twenty high-profile twitter accounts in the biotech space were identified as listed [here](./biotech_influcencers.txt).
 The Twitter API was used to extract account IDs and all historical tweets from these influencer 
 accounts.
 
-###Target Industry Language
+### Target Industry Language
 To measure how many Tweets over time refer to topics in the biotech industry, we obtained a
 document embedding of the summary statement for each of five companies as found on Yahoo!
 Finance. Using Spacy to break each summary into sentences, each sentence was classified into
@@ -28,16 +29,17 @@ the mean of the sentence vectors for each document.
  
 This same model and method was used to classify each tweet in the industry domain.
  
-###Similarity Detection
+### Similarity Detection
 Given a set of document embeddings for each company and a set of tweet embeddings on the
 same domain-specific Sent2Vec model, we calculated the cosine similarity between each tweet
 and each of five document embeddings to obtain a matrix of similarity metrics roughly
 indicating the degree to which each tweet refers to concepts related to each company.
+These data were dumped to a [csv file](./tweet_cosine_similarities.csv)
 
-###Data Cleaning
+### Data Cleaning
 To obtain a time series for comparison with each company from the list of historical
 tweets, we bucketed our index by day and then found the sum of the cosine similarities
-of tweets from that day with respect to each company.
+of tweets from that day with respect to each company. See 
     
 
 
