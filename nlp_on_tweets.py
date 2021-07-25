@@ -100,6 +100,8 @@ company_profiles = {
             "in Cambridge, Massachusetts."
 }
 
+CSV_HEADER = ['tweet_id','user','time','text']
+
 
 def get_similarity(tweet, document_embedding):
     tweet_sentences = [t.text for t in sentencizer(tweet).sents]
@@ -107,8 +109,17 @@ def get_similarity(tweet, document_embedding):
         [model.get_sentence_vector(s.replace('\n', '')) for s in tweet_sentences], axis=0)
     return 1 - distance.cosine(tweet_embedding, document_embedding)
 
+def to_csv_line(tweet_id, tweet_features_json):
+    output = [tweet_id]
+    for column in CSV_HEADER[1:]:
+        output.append(str(tweet_features_json[column]))
+    return ','.join(output) + '\n'
+
 
 if __name__ == "__main__":
+    # our csv has a column of cosine similarity estimating the degree to which each tweet is related to each company
+    CSV_HEADER.extend([f'about_{company_ticker}' for company_ticker in company_profiles])
+
     # first, extract sentences and infer+store their embeddings for each company
     sentence_embeddings = {
         symbol: [model.get_sentence_vector(s.text) for s in sentencizer(company_blurb).sents]
@@ -129,26 +140,29 @@ if __name__ == "__main__":
 
     print('processing tweets...')
     counter = 0
-    for influencer, tweets in tweets_json.items():
-        print(influencer)
-        for tweet in tweets:
-            tweet_id = tweet['id']
-            tweet_time = tweet['created_at']
-            tweet_text = tweet['text']
-            tweet_features = {
-                'time': tweet_time,
-                'text': tweet_text,
-                'user': influencer,
-            }
-            tweet_features.update(
-                {
-                    f'about_{company_name}': get_similarity(tweet_text, blurb_embeddings[company_name])
-                    for company_name in blurb_embeddings
-                }
-            )
-            tweet_similarities_to_company_blurbs[tweet_id] = tweet_features
-            counter += 1
-        print(f'{counter} tweets processed so far...')
 
-    with open('tweet_cosine_similarities.json', 'w', encoding='utf-8') as _output:
-        json.dump(tweet_similarities_to_company_blurbs, ensure_ascii=False, indent=4)
+    with open('tweet_cosine_similarities.csv', 'w', encoding='utf-8') as _output:
+        _output.write(','.join(CSV_HEADER) + '\n')
+        for influencer, tweets in tweets_json.items():
+            print(influencer)
+            for tweet in tweets:
+                tweet_id = tweet['id']
+                tweet_time = tweet['created_at']
+                tweet_text = tweet['text']
+                tweet_features = {
+                    'time': tweet_time,
+                    'text': tweet_text.replace('\n', ''),
+                    'user': influencer,
+                }
+                tweet_features.update(
+                    {
+                        f'about_{company_name}': get_similarity(tweet_text, blurb_embeddings[company_name])
+                        for company_name in blurb_embeddings
+                    }
+                )
+                tweet_similarities_to_company_blurbs[tweet_id] = tweet_features
+                _output.write(to_csv_line(tweet_id, tweet_features))
+                counter += 1
+            print(f'{counter} tweets processed so far...')
+
+        #json.dump(tweet_similarities_to_company_blurbs, _output, ensure_ascii=False, indent=4)
