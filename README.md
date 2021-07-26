@@ -180,6 +180,9 @@ Given we want to check the effect of news events on NBI prices. When a keyword f
 ## Contributors
 
 Alissa Bolla
+
 Michael Gough
+
 Andrew McKay
+
 Arturo Garcidueñas
